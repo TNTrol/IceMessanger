@@ -1,8 +1,6 @@
 #pragma once
-#include "messanger/hello.h"
+#include "messanger/messanger.h"
 #include <string>
-
-void print_hello();
 
 class MessangerImpl : public Messanger::ICommunacation
 {

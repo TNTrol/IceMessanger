@@ -1,5 +1,4 @@
-#include "test.h"
-#include "messanger/hello.h"
+#include "server.h"
 #include <Ice/Ice.h>
 #include <memory>
 
@@ -11,8 +10,8 @@ int main()
         ic = Ice::initialize();
         Ice::ObjectAdapterPtr adapter =
             ic->createObjectAdapterWithEndpoints("Messanger", "default -p 10002");
-        auto servant = new MessangerImpl();
-        adapter->add(servant, Ice::stringToIdentity("Messanger"));
+        auto servant = std::make_shared<MessangerImpl>();
+        adapter->add(servant.get(), Ice::stringToIdentity("Messanger"));
         adapter->activate();
         ic->waitForShutdown();
     } catch (const Ice::Exception& e) {

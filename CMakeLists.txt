@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.28)
 set (CMAKE_CXX_STANDARD 17)
-#set(ICE_CPP11_MAPPING)
+
 #add_definitions(-DICE_CPP11_MAPPING)
 
 project(icemessanger)
@@ -8,7 +8,7 @@ project(icemessanger)
 include(cmake/iceGenerator.cmake)
 
 set(COMMON_SRC 
-${CMAKE_CURRENT_SOURCE_DIR}/ice/messanger/hello.ice
+${CMAKE_CURRENT_SOURCE_DIR}/ice/messanger/messanger.ice
 )
 
 add_ice_library(
@@ -17,7 +17,7 @@ add_ice_library(
     INTERFACE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ice"
     )
 
-set(SOURCE lib/test.cpp)
+set(SOURCE lib/server.cpp)
 
 include_directories(include)
 add_executable(iceclient bin/client/main.cpp ${SOURCE})

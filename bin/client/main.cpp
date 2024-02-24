@@ -1,4 +1,4 @@
-#include "test.h"
+#include "messanger/messanger.h"
 #include <Ice/Ice.h>
 
 int main()
